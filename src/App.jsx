@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import './App.css';
+import {Hilux1} from './components/Hilux1';
+import {Hilux2} from './components/Hilux2';
+import {Hilux3} from './components/Hilux3';
+import {Hilux4} from './components/Hilux4';
+import {Hilux5} from './components/Hilux5';
+import {Hilux6} from './components/Hilux6';
+import { Navigation } from './components/Navigation';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
+      <BrowserRouter>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1 className='text-center my-3'>Gallery Project</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+        <div className='container d-flex justify-content-center'> 
+          <Routes>
+            <Route path='/hilux1' element={<Hilux1 className='main-img-container' />} />
+            <Route path='/hilux2' element={<Hilux2 className='main-img-container' />} />
+            <Route path='/hilux3' element={<Hilux3 className='main-img-container' />} />
+            <Route path='/hilux4' element={<Hilux4 className='main-img-container' />} />
+            <Route path='/hilux5' element={<Hilux5 className='main-img-container' />} />
+            <Route path='/hilux6' element={<Hilux6 className='main-img-container' />} />
+          </Routes>
+        </div>
+        <div className='container'>
+          <Navigation />
+        </div>
+      </BrowserRouter>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
